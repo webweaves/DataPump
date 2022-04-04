@@ -1,12 +1,12 @@
 package com.scottfree.datapump.subscribers;
 
 import com.scottfree.datapump.Message;
-import com.scottfree.datapump.Topic;
+import com.scottfree.datapump.DataStream;
 
 public class SubscriberToDisk extends Subscriber {
 
     @Override
-    public void receivedMessage(Topic t, Message m) {
-        System.out.println("DISK: Im subscribed to " + t.getTopic() + " so processing the data");
+    public void receivedMessage(DataStream t, Message m) {
+        System.out.println("DISK: Im subscribed to " + t.getStream() + " so processing the data");
     }
 }

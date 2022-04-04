@@ -2,17 +2,17 @@ package com.scottfree.datapump.subscribers;
 
 import com.scottfree.datapump.ContentServer;
 import com.scottfree.datapump.Message;
-import com.scottfree.datapump.Topic;
+import com.scottfree.datapump.DataStream;
 
 public abstract class Subscriber {
 
-    public Subscriber(Topic...topics) {
-        for (Topic t : topics) {
-            ContentServer.getInstance().registerSubscriber(this, t);
+    public Subscriber(DataStream...streams) {
+        for (DataStream s : streams) {
+            ContentServer.getInstance().registerSubscriber(this, s);
         }
     }
 
-    public abstract void receivedMessage(Topic t, Message m);
+    public abstract void receivedMessage(DataStream s, Message m);
 
     @Override
     public String toString() {
